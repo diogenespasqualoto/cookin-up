@@ -13,8 +13,8 @@
             </p>
         </div>
         <img src="../assets/images/foto-banner.png"
-             alt="Foto de uma mulher cozinhando com uma bacia de vidro nas mãos. Ela está sorrindo e está apoiando um celular entre seu rosto e ombro."
-             class="foto-banner">
+             alt="Foto de uma mulher cozinhando com uma bacia de vidro nas mãos.
+             Ela está sorrindo e está apoiando um celular entre seu rosto e ombro.">
     </header>
 </template>
 
