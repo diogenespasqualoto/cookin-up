@@ -47,9 +47,9 @@ export default {
   gap: 0.5rem;
 }
 
-//.categoria__imagem {
-//  width: 3.5rem;
-//}
+.categoria__imagem {
+  width: 3.5rem;
+}
 
 .categoria__nome {
   text-align: center;
