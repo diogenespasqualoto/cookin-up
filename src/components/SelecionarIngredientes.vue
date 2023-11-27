@@ -4,7 +4,7 @@ import type ICategorias from "@/interfaces/ICategorias";
 import CardCategoria from "@/components/CardCategoria.vue";
 
 export default {
-  components: {CardCategoria},
+    components: {CardCategoria},
     data() {
         return {
             categorias: [] as ICategorias[]
