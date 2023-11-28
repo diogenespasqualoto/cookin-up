@@ -10,7 +10,6 @@ export default {
   }
 }
 </script>
-
 <template>
   <article class="categoria">
     <header class="categoria__cabecalho">
