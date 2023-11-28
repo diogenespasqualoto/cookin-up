@@ -1,25 +1,27 @@
-<script lang="ts" >
+<script lang="ts">
 import type {PropType} from "vue";
 import type ICategorias from "@/interfaces/ICategorias";
+import Tag from "@/components/Tag.vue";
 
 export default {
-  props:{
-    categoria: {type:Object as PropType<ICategorias>, required:true }
+  components: {Tag},
+  props: {
+    categoria: {type: Object as PropType<ICategorias>, required: true}
   }
 }
 </script>
 
 <template>
-  <article class="categoria" >
+  <article class="categoria">
     <header class="categoria__cabecalho">
       <img :src="`/imagens/icones/categorias_ingredientes/${categoria.imagem}`" alt="">
 
-      <h2 class="paragrafo-lg categoria__nome">{{categoria.nome}}</h2>
+      <h2 class="paragrafo-lg categoria__nome">{{ categoria.nome }}</h2>
     </header>
 
-    <ul class="categoria__ingredientes" >
+    <ul class="categoria__ingredientes">
       <li v-for="ingrediente in categoria.ingredientes" :key="ingrediente">
-        {{ingrediente}}
+       <Tag :texto="ingrediente"/>
       </li>
     </ul>
   </article>
@@ -50,6 +52,7 @@ export default {
 .categoria__imagem {
   width: 3.5rem;
 }
+
 
 .categoria__nome {
   text-align: center;
