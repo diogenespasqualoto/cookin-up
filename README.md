@@ -38,3 +38,4 @@ npm run dev
 ```sh
 npm run build
 ```
+PAREI EM MANTENDO UM COMPONENTE VIVO
