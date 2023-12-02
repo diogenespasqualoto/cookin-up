@@ -11,28 +11,25 @@ export default {
       selecionado: false
     }
   },
-  methods:{
-    aoClicar(){
+  methods: {
+    aoClicar() {
       this.selecionado = !this.selecionado
 
-      if(this.selecionado){
-        this.$emit('adicionarIngrediente',
-            this.ingrediente);
+      if (this.selecionado) {
+        this.$emit('adicionarIngrediente', this.ingrediente)
       } else {
-        this.$emit('removerIngrediente',
-            this.ingrediente);
+        this.$emit('removerIngrediente', this.ingrediente);
       }
     }
   },
   emits: ['adicionarIngrediente', 'removerIngrediente']
-
 }
 </script>
 
 <template>
   <button
       class="ingrediente"
-      v-on:click="aoClicar"
+      @click="aoClicar"
       :aria-pressed="selecionado"
   >
     <Tag :texto="ingrediente" :ativa="selecionado" />
@@ -44,6 +41,3 @@ export default {
   cursor: pointer;
 }
 </style>
-
-
-

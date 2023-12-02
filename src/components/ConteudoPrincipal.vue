@@ -5,6 +5,7 @@ import SuaLista from './SuaLista.vue';
 import Tag from './Tag.vue';
 
 type Pagina = 'SelecionarIngredientes' | 'MostrarReceitas';
+
 export default {
   data() {
     return {
@@ -12,16 +13,16 @@ export default {
       conteudo: 'SelecionarIngredientes' as Pagina
     };
   },
-  components: {MostrarReceitas, SelecionarIngredientes, Tag, SuaLista },
-  methods:{
-    adicionarIngrediente(ingrediente:string){
+  components: { SelecionarIngredientes, Tag, SuaLista, MostrarReceitas },
+  methods: {
+    adicionarIngrediente(ingrediente: string) {
       this.ingredientes.push(ingrediente)
     },
-  removerIngrediente(ingrediente: string) {
-    this.ingredientes = this.ingredientes.filter(iLista => ingrediente !== iLista);
-  },
-    navegar(pagina:Pagina){
-      this.conteudo = pagina
+    removerIngrediente(ingrediente: string) {
+      this.ingredientes = this.ingredientes.filter(iLista => ingrediente !== iLista);
+    },
+    navegar(pagina: Pagina) {
+      this.conteudo = pagina;
     }
   }
 }
@@ -31,12 +32,18 @@ export default {
   <main class="conteudo-principal">
     <SuaLista :ingredientes="ingredientes" />
 
-    <SelecionarIngredientes v-if="conteudo === 'SelecionarIngredientes' "
-        @adicionar-ingrediente="adicionarIngrediente"
-        @remover-ingrediente="removerIngrediente"
-        @buscar-receitas="navegar('MostrarReceitas')"
-    />
-    <MostrarReceitas  v-else-if="conteudo === 'MostrarReceitas' " />
+    <KeepAlive include="SelecionarIngredientes">
+      <SelecionarIngredientes v-if="conteudo === 'SelecionarIngredientes'"
+                              @adicionar-ingrediente="adicionarIngrediente"
+                              @remover-ingrediente="removerIngrediente"
+                              @buscar-receitas="navegar('MostrarReceitas')"
+      />
+
+      <MostrarReceitas v-else-if="conteudo === 'MostrarReceitas'"
+                       :ingredientes="ingredientes"
+                       @editar-receitas="navegar('SelecionarIngredientes')"
+      />
+    </KeepAlive>
   </main>
 </template>
 
