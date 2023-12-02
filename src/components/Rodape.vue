@@ -18,7 +18,6 @@
     padding: 1.5rem 3.75rem;
   }
 }
-
 @media only screen and (max-width: 767px) {
   .rodape {
     padding: 1.5rem;
