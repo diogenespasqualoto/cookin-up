@@ -40,7 +40,6 @@ export default {
     <p class="paragrafo dica">
       *Atenção: consideramos que você tem em casa sal, pimenta e água.
     </p>
-
     <BotaoPrincipal texto="Buscar receitas!" @click="$emit('buscarReceitas')" />
   </section>
 </template>
